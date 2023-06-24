@@ -1,0 +1,15 @@
+select {
+  width: 10rem;
+  font-size: 1rem;
+  padding: 2px 5px;
+  font-family: "Comfortaa", cursive;
+  color: var(--primary-color);
+  border-color: var(--primary-color);
+  border-radius: 0.2rem;
+  background-color: #f3f4f6;
+}
+
+option {
+  color: var(--primary-color);
+  background-color: #f3f4f6;
+}

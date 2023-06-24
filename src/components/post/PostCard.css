@@ -1,0 +1,40 @@
+.post-card-div {
+  /* border: 2px solid brown; */
+  padding: 0.5rem;
+  margin: 1rem 0;
+  gap: 0.5rem;
+  width: 40rem;
+  box-shadow: 2px 2px 7px 0px var(--primary-color);
+}
+
+.post-card-details-div {
+  gap: 0.5rem;
+  padding: 0 0.5rem;
+}
+
+.post-card-username-date-div {
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.profile-img {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.votes-div {
+  gap: 0.5rem;
+}
+
+.post-icons-div {
+  margin-top: 0.2rem;
+}
+
+.tags {
+  color: var(--primary-color);
+  background-color: var(--secondary-color);
+  padding: 0.4rem;
+  border-radius: 0.5rem;
+}

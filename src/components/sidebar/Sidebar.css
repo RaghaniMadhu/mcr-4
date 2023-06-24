@@ -1,0 +1,30 @@
+.navlink {
+  gap: 0.5rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  text-decoration: none;
+  color: var(--primary-color);
+}
+
+.explore-links-div {
+  gap: 0.5rem;
+}
+
+.aside-div {
+  gap: 1rem;
+  padding: 1rem;
+  font-size: large;
+}
+
+.aside-div button {
+  width: fit-content;
+  align-self: center;
+}
+
+.profile-card-div {
+  gap: 0.5rem;
+}
+
+.profile-card-name-div {
+  align-items: flex-start;
+}

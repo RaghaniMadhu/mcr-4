@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BsBookmark, BsBookmarkFill, BsShare } from "react-icons/bs";
 import { BiSolidUpArrow, BiSolidDownArrow } from "react-icons/bi";
 import { GoComment } from "react-icons/go";
 import "../post/PostCard.css";
+import { ForumContext } from "../../contexts/ForumContext";
 
 function PostCard({
   postDetails: {
-    // postId,
+    postId,
     username,
     // name,
     picUrl,
@@ -26,15 +27,25 @@ function PostCard({
   // var diffHrs = Math.floor((diffMs % 86400000) / 3600000); // hours
   var diffMins = Math.floor(((diffMs % 86400000) % 3600000) / 60000); // minutes
 
+  const { bookmarkUnBookmark, increaseDecreaseUpvoteCount } =
+    useContext(ForumContext);
+
   return (
     <div className="post-card-div flex-row-center">
       <div className="flex-column-center votes-div">
         <BiSolidUpArrow
-          className="github-icons big-icons cursor-pointer"
-          style={{ color: "#9ca3af" }}
+          className="github-icons big-icons cursor-pointer upvote-downvote"
+          onClick={() => {
+            increaseDecreaseUpvoteCount(postId, true);
+          }}
         />
         <p className="margin-block-0">{upvotes - downvotes}</p>
-        <BiSolidDownArrow className="github-icons big-icons cursor-pointer" />
+        <BiSolidDownArrow
+          className="github-icons big-icons cursor-pointer upvote-downvote"
+          onClick={() => {
+            increaseDecreaseUpvoteCount(postId, false);
+          }}
+        />
       </div>
       <div className="flex-column post-card-details-div">
         <div className="flex-row justify-space-between">
@@ -65,9 +76,19 @@ function PostCard({
           <GoComment className="github-icons cursor-pointer" />
           <BsShare className="github-icons" />
           {isBookmarked ? (
-            <BsBookmarkFill className="github-icons cursor-pointer" />
+            <BsBookmarkFill
+              className="github-icons cursor-pointer"
+              onClick={() => {
+                bookmarkUnBookmark(postId);
+              }}
+            />
           ) : (
-            <BsBookmark className="github-icons cursor-pointer" />
+            <BsBookmark
+              className="github-icons cursor-pointer"
+              onClick={() => {
+                bookmarkUnBookmark(postId);
+              }}
+            />
           )}
         </div>
       </div>

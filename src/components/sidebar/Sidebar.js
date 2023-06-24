@@ -1,10 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
 import { AiOutlineHome, AiOutlineUser } from "react-icons/ai";
 import { BsRocket, BsBookmark } from "react-icons/bs";
 import "../sidebar/Sidebar.css";
 import { NavLink } from "react-router-dom";
+import { ForumContext } from "../../contexts/ForumContext";
 
 function Sidebar() {
+  const { userProfile } = useContext(ForumContext);
   const getActiveStyle = ({ isActive }) => ({
     fontWeight: isActive ? "700" : "",
     fontSize: isActive ? "large" : "",
@@ -29,16 +31,12 @@ function Sidebar() {
       </div>
       <div className="flex-row profile-card-div">
         <div>
-          <img
-            src="https://res.cloudinary.com/djbnm7p4c/image/upload/v1687341993/1_tqef33.png"
-            alt="profile"
-            className="profile-img"
-          />
+          <img src={userProfile.picUrl} alt="profile" className="profile-img" />
         </div>
         <div className="flex-column justify-space-between profile-card-name-div">
-          <p className="margin-block-0 font-weight-bold">Madhu Raghani</p>
+          <p className="margin-block-0 font-weight-bold">{userProfile.name}</p>
           <p className="margin-block-0 gray-color font-size-small">
-            @madhuraghani
+            @{userProfile.username}
           </p>
         </div>
       </div>

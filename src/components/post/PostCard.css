@@ -38,3 +38,11 @@
   padding: 0.4rem;
   border-radius: 0.5rem;
 }
+
+.upvote-downvote {
+  color: var(--gray-color);
+}
+
+.upvote-downvote:hover {
+  color: var(--primary-color);
+}

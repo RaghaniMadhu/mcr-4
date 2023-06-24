@@ -3,6 +3,7 @@ import "./App.css";
 
 import Home from "./pages/home/Home";
 import Navbar from "./components/navbar/Navbar";
+import PostPage from "./pages/posts/PostPage";
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/post/:postId" element={<PostPage />} />
       </Routes>
     </div>
   );

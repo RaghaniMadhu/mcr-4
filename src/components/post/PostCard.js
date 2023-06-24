@@ -4,6 +4,7 @@ import { BiSolidUpArrow, BiSolidDownArrow } from "react-icons/bi";
 import { GoComment } from "react-icons/go";
 import "../post/PostCard.css";
 import { ForumContext } from "../../contexts/ForumContext";
+import { useNavigate } from "react-router-dom";
 
 function PostCard({
   postDetails: {
@@ -29,6 +30,8 @@ function PostCard({
 
   const { bookmarkUnBookmark, increaseDecreaseUpvoteCount } =
     useContext(ForumContext);
+
+  const navigate = useNavigate();
 
   return (
     <div className="post-card-div flex-row-center">
@@ -73,7 +76,12 @@ function PostCard({
           </p>
         </div>
         <div className="flex-row justify-space-between post-icons-div">
-          <GoComment className="github-icons cursor-pointer" />
+          <GoComment
+            className="github-icons cursor-pointer"
+            onClick={() => {
+              navigate("/post/" + postId);
+            }}
+          />
           <BsShare className="github-icons" />
           {isBookmarked ? (
             <BsBookmarkFill
